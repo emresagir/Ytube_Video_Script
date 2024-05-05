@@ -1,6 +1,15 @@
 from pytube import YouTube
+from pytube import Channel
 
-yt = YouTube('https://www.youtube.com/watch?v=XFkzRNyygfk')
+c = Channel('https://www.youtube.com/channel/UCszy2T-XzqrpJ53qXWuzerw/videos')
 
-print(yt.title)
+print(c.channel_name)
+
+for video in c.videos:
+    # Only audio's will be downloaded.
+    print(video.title + "\n")
+    print(video.streams.filter(only_audio=True))
+    print("\n\n")
+
+
 
